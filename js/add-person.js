@@ -81,14 +81,14 @@ const createAddressBook = () => {
     }
     addressBookData.phone = getInputValuesById('#phone');
     addressBookData.address = getInputValuesById('#address');
-    addressBookData.city = getInputValuesById('[name=city]');
-    addressBookData.state = getInputValuesById('[name=state]');
+    addressBookData.city = getInputValuesById('#city');
+    addressBookData.state = getInputValuesById('#state');
     addressBookData.zip = getInputValuesById('#zip');
     alert(addressBookData.toString());
     return addressBookData;
 }
 
-// UC-8 Store data to Local Storage
+// UC-8 Store Address Book Data to Local Storage
 function createAndUpdateStorage(addressBookData){
     let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
     if(addressBookList != undefined){
@@ -104,4 +104,14 @@ function createAndUpdateStorage(addressBookData){
 const getInputValuesById = (id) => {
     let value = document.querySelector(id).value;
     return value;
+}
+
+//UC-9 Reset Form
+const resetForm = () => {
+    setValue('#name','');
+    setValue('#phone','');
+    setValue('#address','');
+    setValue('#city','');
+    setValue('#state','');
+    setValue('#zip','');
 }
