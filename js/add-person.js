@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            (new AddressBookData()).name = name.value;;
+            (new AddressBookData()).fullname = name.value;;
             textError.textContent = "";
         } catch (e) {
             textError.textContent = e;
@@ -59,3 +59,35 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 });
+
+// UC-6
+const save = () => {
+    try{
+        let addressBookData = createAddressBook();
+    }catch (e) {
+        return;
+    }
+}
+
+//UC-6
+const createAddressBook = () => {
+    let addressBookData = new AddressBookData();
+    try{
+        addressBookData.fullname = getInputValuesById('#name');
+    }catch(e){
+        setTextValue('.test-error', e);
+        throw e;
+    }
+    addressBookData.phone = getInputValuesById('#phone');
+    addressBookData.address = getInputValuesById('#address');
+    addressBookData.city = getInputValuesById('[name=city]');
+    addressBookData.state = getInputValuesById('[name=state]');
+    addressBookData.zip = getInputValuesById('#zip');
+    alert(addressBookData.toString());
+    return addressBookData;
+}
+
+const getInputValuesById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}
