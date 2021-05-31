@@ -50,13 +50,13 @@ class AddressBookData{
         }
         else throw 'Invalid Zip-Code';  
     }
-    
+    //UC 7 
     toString(){
-        return "Full Name = '"+this.fullname + 
-                ", Phone-Number = '" + this.phone + 
-                ", Address ='" + this.address +
-                ", City = '"+this.city+
-                ", State = '" + this.state +
-                ", Zip-code = '" + this.zip; 
+        return "\t Full Name = '"+this.fullname + 
+                "\n Phone-Number = '" + this.phone + 
+                "\n Address ='" + this.address +
+                "\n City = '"+this.city+
+                "\n State = '" + this.state +
+                "\n Zip-code = '" + this.zip; 
     }
 }
