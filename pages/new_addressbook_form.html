@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!--UC1-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "shortcut icon" href = "/assets/addressBook.svg">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/new_addressbook_form.css">
     <title>Address Book</title>
-	<script defer src="../js/AddressBookData.js"></script>
-	<script defer src="../js/add-person.js"></script>
 </head>
+
 <body>
     <!-- UC-1 Address Book Form UI-->
     <header class="header-content header">
@@ -41,25 +39,27 @@
             </div>
             <div class="row-content">
                 <label class="label-text" for="phone">Phone Number</label>
-                <input class="input" type="text" id="phone" name="phone" placeholder="Mobile Number.." required>
-                <error-output class="text-error" for="text"></error-output>
+                <input class="input" type="text" id="phone" name="phone" placeholder="your number..." required>
+                <error-output class="phone-error" for="text"></error-output>
             </div>
             <div class="row-content">
                 <label class="label-text" for="address">Address</label>
-                <input class="input-address" type="text" id="address" name="address" placeholder="Enter address..." required>
+                <input class="input-address" type="text" id="address" name="address" placeholder="your address..." required>
+                <error-output class="add-error" for="text"></error-output>
             </div>
             <div class="row-content-select">
                 <div class="place">
                     <label class="label-text" for="city">City</label>
                     <select class="select" id="city" name="city">
                         <option value="" selected disabled hidden>Select City</option>
-                        <option value="1">Bengaluru</option>
-						<option value="2">Davanagere</option>
-                        <option value="3">Chennai</>
-                        <option value="4">Delhi</option>
-                        <option value="5">Kolkata</option>
-                        <option value="6">Mumbai</option>
-                        <option value="7">Pune</option>
+                        <option value="Davanagere">Davanagere</option>
+                        <option value="Bengaluru">Bengaluru</option>
+						<option value="Bhopal">Bhopal</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Pune">Pune</option>
                     </select>
                 </div>
 
@@ -67,22 +67,22 @@
                     <label class="label-text" for="state">State</label>
                     <select class="select" id="state`" name="state">
                         <option value="" selected disabled hidden>Select State</option>
-						<option value="1">Karnataka</option>
-                        <option value="2">Madhya Pradesh</option>
-                        <option value="3">Maharashtra</option>
-                        <option value="4">Delhi</option>
-                        <option value="5">West Bengal</option>
-                        <option value="6">TamilNadu</option>
-						<option value="7">AndraPradesh</option>
+                        <option value="Karnataka">Karnataka</option>
+						<option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Tamilnadu">Tamilnadu</option>
                     </select>
                 </div>
 
                 <div class="place">
                     <label class="label-text" for="zip">Zip-Code</label>
-                    <input class="input" type="text" id="zip" name="zip" placeholder="" required>
+                    <input class="input" type="text" id="zip" name="zip" placeholder="zip code" required>
+                    <error-output class="zip-error" for="text"></error-output>
                 </div>
             </div>
-			<!-- UC-5 Buttons-->
+       		<!-- UC-5 -->
             <div class="buttonParent">
                 <div class="submit-reset">
                     <button type="reset" class="resetButton button">Reset</button>
@@ -90,7 +90,9 @@
                 </div>
             </div>
     	</div>
-    	</form>
+    </form>
     </div>
+    <script defer src="../js/AddressBookData.js"></script>
+    <script defer src="../js/add-person.js"></script>
 </body>
 </html>

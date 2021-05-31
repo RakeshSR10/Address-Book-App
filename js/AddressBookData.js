@@ -1,11 +1,11 @@
 // UC-4 Validations for Input fields
 class AddressBookData{
 
-    get name(){ return this._name; }
-    set name(name){
-        let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
-        if( nameRegex.test(name)){
-            this.name=name;
+    get fullname(){ return this._fullname; }
+    set fullname(fullname){
+        let nameRegex = RegExp('^[A-Z_]{1}[a-zA-Z_ ]{3,}$');
+        if( nameRegex.test(fullname)){
+            this._fullname=fullname;
         }
         else throw 'Invalid Name';  
     }
@@ -25,7 +25,7 @@ class AddressBookData{
 
     get address(){ return this._address; }
     set address(address){
-        let addressRegex = RegExp('[A-Z]{1}[a-z]{3,}');
+        let addressRegex = RegExp('^[a-zA-Z0-9_][a-zA-Z0-9_ ]{4,}$');
         if( addressRegex.test(address)){
             this._address=address;
         }
@@ -52,7 +52,11 @@ class AddressBookData{
     }
     
     toString(){
-        return "FullName = '"+this.name + ", phone = '" + this.phone + ", address ='" + this.address +
-                        ", city = '"+this.city+ ", state = '" + this.state +", zip-code = '" + this.zip; 
+        return "Full Name = '"+this.fullname + 
+                ", Phone-Number = '" + this.phone + 
+                ", Address ='" + this.address +
+                ", City = '"+this.city+
+                ", State = '" + this.state +
+                ", Zip-code = '" + this.zip; 
     }
 }
