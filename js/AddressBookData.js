@@ -1,6 +1,11 @@
 // UC-4 Validations for Input fields
 class AddressBookData{
 
+    get id(){ return this._id; }
+    set id(id){
+        this._id=id;
+    }
+
     get fullname(){ return this._fullname; }
     set fullname(fullname){
         let nameRegex = RegExp('^[A-Z_]{1}[a-zA-Z_ ]{3,}$');
@@ -50,13 +55,9 @@ class AddressBookData{
         }
         else throw 'Invalid Zip-Code';  
     }
-    //UC 7 
+    //toString method
     toString(){
-        return "\t Full Name = '"+this.fullname + 
-                "\n Phone-Number = '" + this.phone + 
-                "\n Address ='" + this.address +
-                "\n City = '"+this.city+
-                "\n State = '" + this.state +
-                "\n Zip-code = '" + this.zip; 
+        return "id = "+this.id+"fullname = "+this.fullname + ", phone = " + this.phone + ", address =" + this.address +
+                        ", city = "+this.city+ ", state = " + this.state +", zip-code = " + this.zip; 
     }
 }
