@@ -6,21 +6,21 @@
     <link rel = "shortcut icon" href = "/assets/addressBook.svg">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/new_addressbook_form.css">
-    <title>Address Book</title>
+    <title>Add Person</title>
 </head>
 
 <body>
     <!-- UC-1 Address Book Form UI-->
     <header class="header-content header">
         <div class="logo-content">
-            <img src="../assets/images/logo.png" alt="">
+            <img src="/assets/images/logo.png" alt="">
             <div>
                 <span class="add-text">ADDRESS</span><br>
                 <span class="add-text add-book">BOOK</span>
             </div>
         </div>
     </header>
-    <!-- UC-2 Form Header with cancel logo-->
+    <!-- UC-2 Form Header with Cancel Logo-->
     <div class="form-content">
         <div class="content">
             <div class="top">
@@ -29,17 +29,17 @@
             </div>
         </div>
     </div>
-    <!-- UC-3 Form Input Fields-->
+    <!-- UC-3 -->
     <div class="form">
         <form class="form1" action="#" onreset="resetForm()" onsubmit="save()">
             <div class="row-content">
                 <label class="label-text" for="name">Full Name</label>
-                <input class="input" type="text" id="name" name="name" placeholder="Your name..." required>
+                <input class="input" type="text" id="name" name="name" placeholder="Your full name..." required>
                 <error-output class="text-error" for="text"></error-output>
             </div>
             <div class="row-content">
                 <label class="label-text" for="phone">Phone Number</label>
-                <input class="input" type="text" id="phone" name="phone" placeholder="your number..." required>
+                <input class="input" type="text" id="phone" name="phone" placeholder="your mobile-number..." required>
                 <error-output class="phone-error" for="text"></error-output>
             </div>
             <div class="row-content">
@@ -54,7 +54,7 @@
                         <option value="" selected disabled hidden>Select City</option>
                         <option value="Davanagere">Davanagere</option>
                         <option value="Bengaluru">Bengaluru</option>
-						<option value="Bhopal">Bhopal</option>
+                        <option value="Bhopal">Bhopal</option>
                         <option value="Chennai">Chennai</option>
                         <option value="Delhi">Delhi</option>
                         <option value="Kolkata">Kolkata</option>
@@ -65,10 +65,11 @@
 
                 <div class="place">
                     <label class="label-text" for="state">State</label>
-                    <select class="select" id="state`" name="state">
+                    <select class="select" id="state" name="state">
                         <option value="" selected disabled hidden>Select State</option>
                         <option value="Karnataka">Karnataka</option>
-						<option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="AndraPradesh">AndraPradesh</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
                         <option value="Maharashtra">Maharashtra</option>
                         <option value="Delhi">Delhi</option>
                         <option value="West Bengal">West Bengal</option>
@@ -78,18 +79,19 @@
 
                 <div class="place">
                     <label class="label-text" for="zip">Zip-Code</label>
-                    <input class="input" type="text" id="zip" name="zip" placeholder="zip code" required>
+                    <input class="input" type="text" id="zip" name="zip" placeholder="zip-code" required>
                     <error-output class="zip-error" for="text"></error-output>
                 </div>
             </div>
-       		<!-- UC-5 -->
+       <!-- UC-5 Submit and Reset Button-->
             <div class="buttonParent">
                 <div class="submit-reset">
+                    <a href="/pages/new_home.html"><button type="submit" class="button submitButton" id="submitButton">Add</button></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="reset" class="resetButton button">Reset</button>
-                    <button type="submit" class="button submitButton" id="submitButton">Add</button>
                 </div>
             </div>
-    	</div>
+        </div>
     </form>
     </div>
     <script defer src="../js/AddressBookData.js"></script>
