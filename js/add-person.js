@@ -1,6 +1,7 @@
 // UC-15 Update Person Details
 let isUpdate = false;
 let addressBookObj = {};
+
 window.addEventListener('DOMContentLoaded', (event) => {
     const name = document.querySelector('#name');
     const textError = document.querySelector('.text-error');
@@ -62,7 +63,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    checkForUpdate();
+    checkForUpdate();//check update
 });
 
 // UC-15 Checking for Update Person Details
@@ -73,7 +74,7 @@ const checkForUpdate = () => {
     addressBookObj = JSON.parse(addressBookJson);
     setForm();
 }
-
+//set form
 const setForm = () => {
     setValue('#name', addressBookObj._fullname);
     setValue('#phone', employeePayrollObj._phone);
@@ -81,9 +82,17 @@ const setForm = () => {
     setValue('#city', employeePayrollObj._city);
     setValue('#state', employeePayrollObj._state);
     setValue('#zip', employeePayrollObj._zip);
-
 }
 
+//UC-9 Reset Form for fresh page
+const resetForm = () => {
+    setValue('#name','');
+    setValue('#phone','');
+    setValue('#address','');
+    setValue('#city','');
+    setValue('#state','');
+    setValue('#zip','');
+}
 // UC-6 Onclicking Submit Button to save Data
 const save = () => {
     try{
@@ -103,7 +112,7 @@ const createAddressBook = () => {
         setTextValue('.test-error', e);
         throw e;
     }
-    addressBookData.id = Math.floor((Math.random() * 100000) + 1);
+    addressBookData.id = Math.floor((Math.random() * 100) + 1);
     addressBookData.phone = getInputValuesById('#phone');
     addressBookData.address = getInputValuesById('#address');
     addressBookData.city = getInputValuesById('#city');
@@ -129,14 +138,4 @@ function createAndUpdateStorage(addressBookData){
 const getInputValuesById = (id) => {
     let value = document.querySelector(id).value;
     return value;
-}
-
-//UC-9 Reset Form for fresh page
-const resetForm = () => {
-    setValue('#name','');
-    setValue('#phone','');
-    setValue('#address','');
-    setValue('#city','');
-    setValue('#state','');
-    setValue('#zip','');
 }
