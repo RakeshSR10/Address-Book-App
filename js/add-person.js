@@ -79,6 +79,7 @@ const createAddressBook = () => {
         setTextValue('.test-error', e);
         throw e;
     }
+    addressBookData.id = Math.floor((Math.random() * 100000) + 1);
     addressBookData.phone = getInputValuesById('#phone');
     addressBookData.address = getInputValuesById('#address');
     addressBookData.city = getInputValuesById('#city');
@@ -88,7 +89,7 @@ const createAddressBook = () => {
     return addressBookData;
 }
 
-// UC-8 Store Address Book Data to Local Storage
+// UC-8
 function createAndUpdateStorage(addressBookData){
     let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
     if(addressBookList != undefined){
@@ -106,7 +107,7 @@ const getInputValuesById = (id) => {
     return value;
 }
 
-//UC-9 Reset Form
+//UC-9
 const resetForm = () => {
     setValue('#name','');
     setValue('#phone','');
