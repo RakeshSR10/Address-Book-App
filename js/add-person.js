@@ -1,3 +1,6 @@
+// UC-15 Update Person Details
+let isUpdate = false;
+let addressBookObj = {};
 window.addEventListener('DOMContentLoaded', (event) => {
     const name = document.querySelector('#name');
     const textError = document.querySelector('.text-error');
@@ -58,9 +61,30 @@ window.addEventListener('DOMContentLoaded', (event) => {
             zipError.textContent = e;
         }
     });
+
+    checkForUpdate();
 });
 
-// UC-6
+// UC-15 Checking for Update Person Details
+const checkForUpdate = () => {
+    const addressBookJson = localStorage.getItem('editEmp');
+    isUpdate = addressBookJson ? true : false;
+    if(!isUpdate) return;
+    addressBookObj = JSON.parse(addressBookJson);
+    setForm();
+}
+
+const setForm = () => {
+    setValue('#name', addressBookObj._fullname);
+    setValue('#phone', employeePayrollObj._phone);
+    setValue('#address', employeePayrollObj._address);
+    setValue('#city', employeePayrollObj._city);
+    setValue('#state', employeePayrollObj._state);
+    setValue('#zip', employeePayrollObj._zip);
+
+}
+
+// UC-6 Onclicking Submit Button to save Data
 const save = () => {
     try{
         let addressBookData = createAddressBook();
@@ -89,7 +113,7 @@ const createAddressBook = () => {
     return addressBookData;
 }
 
-// UC-8
+// UC-8 Address Book List store into the Local Storage
 function createAndUpdateStorage(addressBookData){
     let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
     if(addressBookList != undefined){
@@ -107,7 +131,7 @@ const getInputValuesById = (id) => {
     return value;
 }
 
-//UC-9
+//UC-9 Reset Form for fresh page
 const resetForm = () => {
     setValue('#name','');
     setValue('#phone','');

@@ -55,7 +55,7 @@ class AddressBookData{
         }
         else throw 'Invalid Zip-Code';  
     }
-    //toString method
+    //toString() method
     toString(){
         return "id = "+this.id+"fullname = "+this.fullname + ", phone = " + this.phone + ", address =" + this.address +
                         ", city = "+this.city+ ", state = " + this.state +", zip-code = " + this.zip; 
