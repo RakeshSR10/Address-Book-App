@@ -1,3 +1,4 @@
+//UC 17 Utility for Validation
 const checkName = (fullname) => {
     let nameRegex = RegExp('^[A-Z_]{1}[a-zA-Z_ ]{3,}$');
     if(!nameRegex.test(fullname)) {
@@ -6,7 +7,7 @@ const checkName = (fullname) => {
 }
 
 const checkPhone = (phone) => {
-    let phoneRegex1 = RegExp(/^[\+]?[(]?[0-9]{3}[)]?[0-9]{3}[-\s\.]?[0-9]{6,13}$/im);
+    let phoneRegex1 = RegExp('^[0-9]{10}$');
     
     if(!phoneRegex1.test(phone)){ 
         throw 'Invalid Phone Number';

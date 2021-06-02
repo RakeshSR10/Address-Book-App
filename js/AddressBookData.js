@@ -2,10 +2,6 @@
 class AddressBookData{
 
     id;
-    // get id(){ return this._id; }
-    // set id(id){
-    //     this._id=id;
-    // }
 
     get fullname(){ return this._fullname; }
     set fullname(fullname){

@@ -1,0 +1,31 @@
+{
+    "AddressBookDB": [
+        {
+            "id": 1,
+            "_fullname": "Rakesh S R",
+            "_phone": 9632147850,
+            "_address": "Siddanuru",
+            "_city": "Davanagere",
+            "_state": "Karnataka",
+            "_zip": 123456
+        },
+        {
+            "id": 2,
+            "_fullname": "Santhosh A R",
+            "_phone": 8521479630,
+            "_address": "Kadlebalu",
+            "_city": "Davanagere",
+            "_state": "Karnataka",
+            "_zip": 963000
+        },
+        {
+            "id": 3,
+            "_fullname": "Rajshekar D V",
+            "_phone": 7534128966,
+            "_address": "Street",
+            "_city": "Chennai",
+            "_state": "Tamilnadu",
+            "_zip": 423156
+        }
+    ]
+}
