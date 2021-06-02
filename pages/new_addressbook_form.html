@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!--UC1-->
     <meta charset="UTF-8">
@@ -26,7 +27,7 @@
         <div class="content">
             <div class="top">
                 <div class="box">PERSON ADDRESS FORM</div>
-                <div class="push"><a href="/pages/new_home.html"><img src="/assets/images/cancel-logo.png" alt=""></a></div>
+                <div class="push"><a href="../pages/new_home.html"><img src="../assets/images/cancel-logo.png" alt=""></a></div>
             </div>
         </div>
     </div>
@@ -40,7 +41,7 @@
             </div>
             <div class="row-content">
                 <label class="label-text" for="phone">Phone Number</label>
-                <input class="input" type="text" id="phone" name="phone" placeholder="Your mobile-number" required>
+                <input class="input" type="text" id="phone" name="phone" placeholder="Your mobile number..." required>
                 <error-output class="phone-error" for="text"></error-output>
             </div>
             <div class="row-content">
@@ -55,8 +56,8 @@
                         <option value="" selected disabled hidden>Select City</option>
                         <option value="Davanagere">Davanagere</option>
                         <option value="Chennai">Chennai</option>
+                        <option value="Delhi">Delhi</option>
                         <option value="Bengaluru">Bengaluru</option>
-                        <option value="Mysore">Mysore</option>
                         <option value="Mumbai">Mumbai</option>
                         <option value="Pune">Pune</option>
                     </select>
@@ -67,10 +68,10 @@
                     <select class="select" id="state" name="state">
                         <option value="" selected disabled hidden>Select State</option>
                         <option value="Karnataka">Karnataka</option>
-                        <option value="AndraPradesh">AndraPradesh</option>
-                        <option value="Madhya Pradesh">Madhya Pradesh</option>
                         <option value="Maharashtra">Maharashtra</option>
-                        <option value="Tamilnadu">Tamilnadu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="AndraPradesh">AndraPradesh</option>
+                        <option value="TamilNadu">TamilNadu</option>
                     </select>
                 </div>
 
@@ -83,7 +84,7 @@
        <!-- UC-5 -->
             <div class="buttonParent">
                 <div class="submit-reset">
-                    <a href="/pages/new_home.html"><button type="submit" class="button submitButton" id="submitButton">Add</button></a>
+                    <a href="../pages/new_home.html"><button type="submit" class="button submitButton" id="submitButton">Add</button></a>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
@@ -93,6 +94,7 @@
     </div>
     <script defer src="../js/AddressBookData.js"></script>
     <script defer src="../js/add-person.js"></script>
-    <!-- <script defer src="../js/add-person.js"></script> -->
+    <script defer src="../js/utility.js"></script>
+    <script defer src="../js/site_properties.js"></script>
 </body>
 </html>
