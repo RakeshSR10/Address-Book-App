@@ -1,9 +1,9 @@
-// UC-15 Update Person Details
+// UC-15
 let isUpdate = false;
 let addressBookObj = {};
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    const name = document.querySelector('#name');
+    const name = document.querySelector('#fullname');
     const textError = document.querySelector('.text-error');
     name.addEventListener('input', function () {
         if (name.value.length == 0) {
@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            (new AddressBookData()).fullname = name.value;;
+            checkName(name.value);
             textError.textContent = "";
         } catch (e) {
             textError.textContent = e;
@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            (new AddressBookData()).phone = phone.value;;
+            checkPhone(phone.value);
             phoneError.textContent = "";
         } catch (e) {
             phoneError.textContent = e;
@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            (new AddressBookData()).address = address.value;;
+            checkAddress(address.value);
             addressError.textContent = "";
         } catch (e) {
             addressError.textContent = e;
@@ -56,86 +56,105 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            (new AddressBookData()).zip = zip.value;;
+            checkZip(zip.value);
             zipError.textContent = "";
         } catch (e) {
             zipError.textContent = e;
         }
     });
 
-    checkForUpdate();//check update
+    checkForUpdate();
 });
 
-// UC-15 Checking for Update Person Details
+// UC-15 Update form
 const checkForUpdate = () => {
-    const addressBookJson = localStorage.getItem('editEmp');
+    const addressBookJson = localStorage.getItem('editContact');
     isUpdate = addressBookJson ? true : false;
     if(!isUpdate) return;
     addressBookObj = JSON.parse(addressBookJson);
     setForm();
 }
-//set form
+
 const setForm = () => {
-    setValue('#name', addressBookObj._fullname);
-    setValue('#phone', employeePayrollObj._phone);
-    setValue('#address', employeePayrollObj._address);
-    setValue('#city', employeePayrollObj._city);
-    setValue('#state', employeePayrollObj._state);
-    setValue('#zip', employeePayrollObj._zip);
+    setValue('#fullname', addressBookObj._fullname);
+    setValue('#phone', addressBookObj._phone);
+    setValue('#address', addressBookObj._address);
+    setValue('#city', addressBookObj._city);
+    setValue('#state',addressBookObj._state);
+    setValue('#zip', addressBookObj._zip);
 }
 
-//UC-9 Reset Form for fresh page
+const getInputValuesById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}
+
+//UC-9
 const resetForm = () => {
-    setValue('#name','');
+    setValue('#fullname','');
     setValue('#phone','');
     setValue('#address','');
     setValue('#city','');
     setValue('#state','');
     setValue('#zip','');
 }
-// UC-6 Onclicking Submit Button to save Data
-const save = () => {
-    try{
-        let addressBookData = createAddressBook();
-        createAndUpdateStorage(addressBookData);
-    }catch (e) {
-        return;
-    }
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
 }
 
-//UC-6
-const createAddressBook = () => {
-    let addressBookData = new AddressBookData();
-    try{
-        addressBookData.fullname = getInputValuesById('#name');
-    }catch(e){
-        setTextValue('.test-error', e);
-        throw e;
-    }
-    addressBookData.id = Math.floor((Math.random() * 100) + 1);
-    addressBookData.phone = getInputValuesById('#phone');
-    addressBookData.address = getInputValuesById('#address');
-    addressBookData.city = getInputValuesById('#city');
-    addressBookData.state = getInputValuesById('#state');
-    addressBookData.zip = getInputValuesById('#zip');
-    alert(addressBookData.toString());
-    return addressBookData;
+// // UC-6 // UC-16
+const save = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setAddressBookObject();
+    createAndUpdateStorage();
+    resetForm();
+    window.location.replace("../pages/home.html");
+    return;    
 }
 
-// UC-8 Address Book List store into the Local Storage
-function createAndUpdateStorage(addressBookData){
+function setAddressBookObject() {
+    if(!isUpdate && site_properties.use_local_storage.match("true")){
+        addressBookObj.id = createNewAddressBookId();
+    }
+    addressBookObj._fullname = getInputValuesById('#fullname');
+    addressBookObj._phone = getInputValuesById('#phone');
+    addressBookObj._address = getInputValuesById('#address');
+    addressBookObj._city = getInputValuesById('#city');
+    addressBookObj._state = getInputValuesById('#state');
+    addressBookObj._zip = getInputValuesById('#zip');
+}
+
+// UC-16
+const createAndUpdateStorage = () => {
     let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
-    if(addressBookList != undefined){
-        addressBookList.push(addressBookData);
+    if(addressBookList){
+        let addressBookData = addressBookList.find(personData => personData.id == addressBookObj.id);
+        if(!addressBookData){
+            addressBookList.push(addressBookObj);
+        }
+        else{
+            const index = addressBookList.map(personData => personData.id).indexOf(addressBookData.id);
+            addressBookList.splice(index, 1, addressBookObj);
+        }
     }
     else{
-        addressBookList = [addressBookData];
+        addressBookList = [addressBookObj];
     }
-    alert(addressBookList.toString());
-    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList));
+    localStorage.setItem("AddressBookList",JSON.stringify(addressBookList));
 }
 
-const getInputValuesById = (id) => {
-    let value = document.querySelector(id).value;
-    return value;
+// UC-16
+const createNewAddressBookId = () => {
+    let personID = localStorage.getItem("AddressBookID");
+    personID = !personID ? 1 : (parseInt(personID)+1).toString();
+    localStorage.setItem("AddressBookID",personID);
+    return personID;
+}
+
+const setTextValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.textContent = value;
 }

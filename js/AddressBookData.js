@@ -1,10 +1,11 @@
-// UC-4 Validations for Input fields
+// UC-4
 class AddressBookData{
 
-    get id(){ return this._id; }
-    set id(id){
-        this._id=id;
-    }
+    id;
+    // get id(){ return this._id; }
+    // set id(id){
+    //     this._id=id;
+    // }
 
     get fullname(){ return this._fullname; }
     set fullname(fullname){
@@ -55,14 +56,9 @@ class AddressBookData{
         }
         else throw 'Invalid Zip-Code';  
     }
-    //toString() method
+    
     toString(){
-        return "\tId = "+this.id+
-                "\n FullName = "+ this.fullname + 
-                "\n Phone-Number = " + this.phone + 
-                "\n Address =" + this.address +
-                "\n City = "+ this.city +
-                "\n State = " + this.state +
-                "\n Zip-code = " + this.zip; 
+        return "id = "+this.id+"\n Full-Name = "+this.fullname + "\n Phone-Number = " + this.phone + "\n Address =" + this.address +
+                "\n City = "+this.city+ "\n State = " + this.state +"\n Zip-code = " + this.zip; 
     }
 }
