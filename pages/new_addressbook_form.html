@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--UC1-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "shortcut icon" href = "/assets/addressBook.svg">
+    <link rel = "shortcut icon" href = "../assets/images/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/new_addressbook_form.css">
     <title>Address Book Form</title>
 </head>
 
 <body>
-    <!-- UC-1 Address Book Form UI-->
+    <!-- UC-1 -->
     <header class="header-content header">
         <div class="logo-content">
-            <img src="/assets/images/logo.png" alt="">
+            <img src="../assets/images/logo.png" alt="">
             <div>
                 <span class="add-text">ADDRESS</span><br>
                 <span class="add-text add-book">BOOK</span>
             </div>
         </div>
     </header>
-    <!-- UC-2 Form Header with Cancel Logo-->
+    <!-- UC-2 -->
     <div class="form-content">
         <div class="content">
             <div class="top">
                 <div class="box">PERSON ADDRESS FORM</div>
-                <div class="push"><a href="../pages/new_home.html"><img src="../assets/images/cancel-logo.png" alt=""></a></div>
+                <div class="push"><a href="/pages/new_home.html"><img src="/assets/images/cancel-logo.png" alt=""></a></div>
             </div>
         </div>
     </div>
     <!-- UC-3 -->
     <div class="form">
-        <form class="form1" action="#" onreset="resetForm()" onsubmit="save()">
+        <form class="form1" action="#" onreset="resetForm()" onsubmit="save(event)">
             <div class="row-content">
-                <label class="label-text" for="name">Full Name</label>
-                <input class="input" type="text" id="name" name="name" placeholder="Your full name..." required>
+                <label class="label-text" for="fullname">Full Name</label>
+                <input class="input" type="text" id="fullname" name="fullname" placeholder="Your name..." required>
                 <error-output class="text-error" for="text"></error-output>
             </div>
             <div class="row-content">
                 <label class="label-text" for="phone">Phone Number</label>
-                <input class="input" type="text" id="phone" name="phone" placeholder="your mobile-number..." required>
+                <input class="input" type="text" id="phone" name="phone" placeholder="Your mobile-number" required>
                 <error-output class="phone-error" for="text"></error-output>
             </div>
             <div class="row-content">
                 <label class="label-text" for="address">Address</label>
-                <input class="input-address" type="text" id="address" name="address" placeholder="your address..." required>
+                <input class="input-address" type="text" id="address" name="address" placeholder="Your address..." required>
                 <error-output class="add-error" for="text"></error-output>
             </div>
             <div class="row-content-select">
@@ -53,12 +54,9 @@
                     <select class="select" id="city" name="city">
                         <option value="" selected disabled hidden>Select City</option>
                         <option value="Davanagere">Davanagere</option>
+                        <option value="Chennai">Chennai</option>
                         <option value="Bengaluru">Bengaluru</option>
                         <option value="Mysore">Mysore</option>
-                        <option value="Bhopal">Bhopal</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="Kolkata">Kolkata</option>
                         <option value="Mumbai">Mumbai</option>
                         <option value="Pune">Pune</option>
                     </select>
@@ -72,30 +70,29 @@
                         <option value="AndraPradesh">AndraPradesh</option>
                         <option value="Madhya Pradesh">Madhya Pradesh</option>
                         <option value="Maharashtra">Maharashtra</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="West Bengal">West Bengal</option>
                         <option value="Tamilnadu">Tamilnadu</option>
                     </select>
                 </div>
 
                 <div class="place">
                     <label class="label-text" for="zip">Zip-Code</label>
-                    <input class="input" type="text" id="zip" name="zip" placeholder="zip-code" required>
+                    <input class="input" type="text" id="zip" name="zip" placeholder="" required>
                     <error-output class="zip-error" for="text"></error-output>
                 </div>
             </div>
-       <!-- UC-5 Submit and Reset Button-->
+       <!-- UC-5 -->
             <div class="buttonParent">
                 <div class="submit-reset">
-                    <button type="submit" class="button submitButton" id="submitButton"><a href="../pages/new_home.html"></a>Add</button></a>
+                    <a href="/pages/new_home.html"><button type="submit" class="button submitButton" id="submitButton">Add</button></a>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>
-        </div>
+    </div>
     </form>
     </div>
     <script defer src="../js/AddressBookData.js"></script>
     <script defer src="../js/add-person.js"></script>
+    <!-- <script defer src="../js/add-person.js"></script> -->
 </body>
 </html>
